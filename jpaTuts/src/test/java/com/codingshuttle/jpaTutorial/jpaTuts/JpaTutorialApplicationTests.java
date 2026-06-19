@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles("test")                 // for DB temp
 public class JpaTutorialApplicationTests
 {
     @Autowired
