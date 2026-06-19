@@ -53,12 +53,12 @@ public class ProductController
     }
 
     @GetMapping("/page")
-    public Page<ProductEntity> getPageOfProducts(@RequestParam(defaultValue = "Id") String sortby,
+    public List<ProductEntity> getPageOfProducts(@RequestParam(defaultValue = "Id") String sortby,
                                                  @RequestParam(defaultValue = "0") Integer pageNumber)
     {
         Pageable pageable = PageRequest.of(pageNumber, PageSize, Sort.by(sortby).descending());      // object of Pageable created using PageRequest
 
-        return productRepository.findAll(pageable);
+        return productRepository.findAll(pageable).getContent();
 
     }
 
