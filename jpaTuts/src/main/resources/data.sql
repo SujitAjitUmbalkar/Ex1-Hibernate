@@ -24,3 +24,12 @@ VALUES
 (19.5, 6, 'pepsi130', 'Pepsi Blue'),
 (15.3, 8, 'parle740', 'Parle 20-20 Cookies'),
 (17.1, 2, 'pepsi131', 'Pepsi Wild Cherry');
+(15.3, 8, 'parle740', 'Parle 20-20 Cookies'),
+(17.1, 2, 'pepsi131', 'Pepsi Wild Cherry'),
+(120.0, 4, 'pepsi1234', 'pepsii'),
+(180.0, 8, 'pepsi5678', 'pepsii'),
+(145.0, 6, 'choco111', 'Milk Choco Bar'),
+(165.0, 7, 'choco222', 'Dark Choco Cookies'),
+(185.0, 8, 'choco333', 'CHOCO Delight'),
+(220.0, 10, 'premium111', 'Premium Cookies'),
+(999.0, 20, 'top999', 'Most Expensive Product');
