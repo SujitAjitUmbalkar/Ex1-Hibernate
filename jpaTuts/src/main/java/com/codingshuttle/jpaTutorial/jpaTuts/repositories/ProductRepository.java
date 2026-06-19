@@ -33,7 +33,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Long>
 
     List<ProductEntity> findByTitleContaining(String choco);
 
-    List<ProductEntity> findByTitleContainingIgnoreCase(String chOco);
+//    List<ProductEntity> findByTitleContainingIgnoreCase(String chOco);
 
     List<ProductEntity> findByTitleStartingWith(String par);
 
@@ -53,6 +53,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Long>
 
 //     OrderBy
     List<ProductEntity> findByOrderByPrice();
+
+//    Pageable
+Page<ProductEntity> findByTitleContainingIgnoreCase(String title , Pageable pageable);
 
 }
 
