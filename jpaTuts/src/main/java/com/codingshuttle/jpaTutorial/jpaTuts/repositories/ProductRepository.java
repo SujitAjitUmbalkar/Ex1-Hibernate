@@ -1,6 +1,7 @@
 package com.codingshuttle.jpaTutorial.jpaTuts.repositories;
 
 import com.codingshuttle.jpaTutorial.jpaTuts.entities.ProductEntity;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -50,5 +51,6 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Long>
 
 //     OrderBy
     List<ProductEntity> findByOrderByPrice();
+
 }
 

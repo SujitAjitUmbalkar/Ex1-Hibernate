@@ -4,8 +4,10 @@ package com.codingshuttle.jpaTutorial.jpaTuts.controller;
 import com.codingshuttle.jpaTutorial.jpaTuts.entities.ProductEntity;
 import com.codingshuttle.jpaTutorial.jpaTuts.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,10 +19,33 @@ public class ProductController
 {
     private final ProductRepository productRepository;
 
-    @GetMapping
+    @GetMapping("/orderby")
     public   List<ProductEntity> getAllProducts()
     {
         return productRepository.findByOrderByPrice();
+    }
+
+    @GetMapping("/sortby")
+    public   List<ProductEntity> getAllProducts(@RequestParam(defaultValue = "Id") String sortby )
+    {
+        return productRepository.findAll(Sort.by(sortby));
+    }
+
+    @GetMapping("/sortbydesc")
+    public   List<ProductEntity> getAllProductsInDesc(@RequestParam(defaultValue = "Id") String sortby )
+    {
+        return  productRepository.findAll(Sort.by(Sort.Direction.DESC,sortby , "price" , "sku"));
+    }
+
+    @GetMapping("/sortbydescasc")
+    public   List<ProductEntity> getAllProductsDescAsc(@RequestParam(defaultValue = "Id") String sortby )
+    {
+        return productRepository.findAll(Sort.by
+                (
+                        Sort.Order.desc(sortby),
+                        Sort.Order.asc("price")
+                )
+        );
     }
 
 }
