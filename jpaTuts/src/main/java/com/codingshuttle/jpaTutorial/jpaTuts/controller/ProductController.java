@@ -4,6 +4,9 @@ package com.codingshuttle.jpaTutorial.jpaTuts.controller;
 import com.codingshuttle.jpaTutorial.jpaTuts.entities.ProductEntity;
 import com.codingshuttle.jpaTutorial.jpaTuts.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController
 {
+    private final int PageSize = 5;
+
     private final ProductRepository productRepository;
 
     @GetMapping("/orderby")
@@ -44,8 +49,17 @@ public class ProductController
                 (
                         Sort.Order.desc(sortby),
                         Sort.Order.asc("price")
-                )
-        );
+                ));
+    }
+
+    @GetMapping("/page")
+    public Page<ProductEntity> getPageOfProducts(@RequestParam(defaultValue = "Id") String sortby,
+                                                 @RequestParam(defaultValue = "0") Integer pageNumber)
+    {
+        Pageable pageable = PageRequest.of(pageNumber, PageSize, Sort.by(sortby).descending());      // object of Pageable created using PageRequest
+
+        return productRepository.findAll(pageable);
+
     }
 
 }
