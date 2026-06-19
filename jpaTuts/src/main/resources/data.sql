@@ -1,4 +1,4 @@
-INSERT ignore INTO testDB.product_table(price , quantity , sku , title_x)
+INSERT ignore INTO testingDB.product_table(price , quantity , sku , title_x)
 VALUES
 (12.4, 4, 'pepsi45', 'Parle Biscuit'),
 (14.4, 1, 'pepsi45', 'Pepsi'),
@@ -23,7 +23,7 @@ VALUES
 (37.8, 9, 'Coke128', 'Coca Cola Vanilla'),
 (19.5, 6, 'pepsi130', 'Pepsi Blue'),
 (15.3, 8, 'parle740', 'Parle 20-20 Cookies'),
-(17.1, 2, 'pepsi131', 'Pepsi Wild Cherry');
+(17.1, 2, 'pepsi131', 'Pepsi Wild Cherry'),
 (15.3, 8, 'parle740', 'Parle 20-20 Cookies'),
 (17.1, 2, 'pepsi131', 'Pepsi Wild Cherry'),
 (120.0, 4, 'pepsi1234', 'pepsii'),

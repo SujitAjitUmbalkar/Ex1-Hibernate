@@ -47,5 +47,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Long>
     long countByTitle(String pepsii);
 
     boolean existsBySku(String pepsi1234);
+
+//     OrderBy
+    List<ProductEntity> findByOrderByPrice();
 }
 
