@@ -1,5 +1,6 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem.repository;
 
+import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.BloodGroupStatsDTO;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.CPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.IPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.entity.Patient;
@@ -18,5 +19,10 @@ public interface PatientRepository extends JpaRepository<Patient, Long>
     @Query("select new com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.CPatientInfo" +
             "(p.id , p.name ) " + " from Patient p")
     List<CPatientInfo> getAllPatientsInfoConcrete();
+
+    @Query("select new com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.BloodGroupStatsDTO" +
+            "(p.bloodGroup, " +
+            "COUNT(p)) from Patient p group by p.bloodGroup order by COUNT(p) DESC")
+    List<BloodGroupStatsDTO> getBloodGroupStats();
 
 }

@@ -1,5 +1,6 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem;
 
+import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.BloodGroupStatsDTO;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.CPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.IPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.entity.Patient;
@@ -51,6 +52,14 @@ public class PatientServiceTest
         List<CPatientInfo> patients2 = patientRepository.getAllPatientsInfoConcrete();
 
         for(CPatientInfo p : patients2)
+        {
+            System.out.println(p);
+        }
+
+        // / /////////////////////////////////////////
+        System.out.println("Printing Aggregated Blood Group Statistics using DTO Constructor Expression");
+        List<BloodGroupStatsDTO> bloodGroupStatsDTOList =patientRepository.getBloodGroupStats();
+        for( var p: bloodGroupStatsDTOList )
         {
             System.out.println(p);
         }
