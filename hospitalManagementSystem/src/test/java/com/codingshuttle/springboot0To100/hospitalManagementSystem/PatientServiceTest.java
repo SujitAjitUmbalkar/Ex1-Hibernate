@@ -1,5 +1,6 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem;
 
+import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.CPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.dto.IPatientInfo;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.entity.Patient;
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.repository.PatientRepository;
@@ -21,7 +22,6 @@ public class PatientServiceTest
     public void testPatient()
     {
         System.out.println("Printing All Data from Entity");
-
         List<Patient> patients = patientRepository.findAll();
         for(Patient patient : patients)
         {
@@ -30,7 +30,6 @@ public class PatientServiceTest
 
         // / /////////////////////////////////////////
         System.out.println("Printing Required Data using Projection Interface ");
-
         List<IPatientInfo> patients1 = patientRepository.getAllPatientsInfo();
 
     //        for(IPatientInfo patientInfo : patients1) {System.out.println(patientInfo);}
@@ -43,6 +42,17 @@ public class PatientServiceTest
                     p.getId(),
                     p.getName(),
                     p.getEmail());
+        }
+
+
+        // / /////////////////////////////////////////
+        System.out.println("Printing Required Data using Projection Concrete class  ");
+
+        List<CPatientInfo> patients2 = patientRepository.getAllPatientsInfoConcrete();
+
+        for(CPatientInfo p : patients2)
+        {
+            System.out.println(p);
         }
     }
 
