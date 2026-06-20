@@ -1,13 +1,27 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem;
 
+import com.codingshuttle.springboot0To100.hospitalManagementSystem.repository.PatientRepository;
+import com.codingshuttle.springboot0To100.hospitalManagementSystem.service.PatientService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HospitalManagementSystemApplication {
+public class HospitalManagementSystemApplication implements CommandLineRunner
+{
+    private final PatientService patientService;
 
-	public static void main(String[] args) {
+    public HospitalManagementSystemApplication(PatientService patientService) {
+        this.patientService = patientService;
+    }
+
+    public static void main(String[] args) {
 		SpringApplication.run(HospitalManagementSystemApplication.class, args);
 	}
 
+    @Override
+    public void run(String... args) throws Exception
+    {
+           patientService.testPatientTransaction();
+    }
 }
