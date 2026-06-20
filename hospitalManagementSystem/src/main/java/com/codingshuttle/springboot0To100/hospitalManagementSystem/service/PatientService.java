@@ -18,10 +18,12 @@ public class PatientService
         Patient p1 = patientRepository.findById(1L).orElse(null);
         Patient p2 = patientRepository.findById(1L).orElse(null);         // tryng to find same used 2 times
 
+        p1.setName("Sujit");            // changes will be saved in DB ,
+
         System.out.println(p1) ;
         System.out.println(p2);
-        System.out.println(p1==p2);
-        // without @@transactional it would differ
+        System.out.println(p1==p2);     // True bCoz both entities are same
+
     }
 }
 
