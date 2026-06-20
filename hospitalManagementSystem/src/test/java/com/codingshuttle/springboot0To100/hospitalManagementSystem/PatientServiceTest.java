@@ -63,6 +63,11 @@ public class PatientServiceTest
         {
             System.out.println(p);
         }
+
+        // ///////////////////////////////
+        System.out.println("Modifying data");
+        int rowsAffected = patientRepository.updatePatientNameWithId("Sujit Umbalkar", 1L);
+        System.out.println(" rows affected "+ rowsAffected);
     }
 
 }
