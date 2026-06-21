@@ -29,6 +29,12 @@ public class Appointment
     @ToString.Exclude
     @JsonIgnore
     private Doctor doctor;
+
+    @ManyToOne // owning side has joincolumn
+    @JoinColumn(nullable = false)               // whenever you fill appointment , patient details must be there
+    @ToString.Exclude
+    @JsonIgnore
+    private Patient patient;
 }
 
 //LAZY fetch type means Hibernate loads only the foreign key initially

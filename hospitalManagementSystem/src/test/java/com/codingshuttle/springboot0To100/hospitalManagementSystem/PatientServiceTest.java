@@ -20,54 +20,8 @@ public class PatientServiceTest
     private PatientRepository patientRepository;
 
     @Test
-    public void testPatient()
-    {
-        System.out.println("Printing All Data from Entity");
-        List<Patient> patients = patientRepository.findAll();
-        for(Patient patient : patients)
-        {
-            System.out.println(patient);
-        }
+    public void testPatient() {
 
-        // / /////////////////////////////////////////
-        System.out.println("Printing Required Data using Projection Interface ");
-        List<IPatientInfo> patients1 = patientRepository.getAllPatientsInfo();
-
-    //        for(IPatientInfo patientInfo : patients1) {System.out.println(patientInfo);}
-    // Directly printing may show a proxy object instead of meaningful data,
-    // so we access values through getter methods.
-
-        for(IPatientInfo p : patients1)
-        {
-            System.out.printf("%d %s %s%n",
-                    p.getId(),
-                    p.getName(),
-                    p.getEmail());
-        }
-
-
-        // / /////////////////////////////////////////
-        System.out.println("Printing Required Data using Projection Concrete class  ");
-
-        List<CPatientInfo> patients2 = patientRepository.getAllPatientsInfoConcrete();
-
-        for(CPatientInfo p : patients2)
-        {
-            System.out.println(p);
-        }
-
-        // / /////////////////////////////////////////
-        System.out.println("Printing Aggregated Blood Group Statistics using DTO Constructor Expression");
-        List<BloodGroupStatsDTO> bloodGroupStatsDTOList =patientRepository.getBloodGroupStats();
-        for( var p: bloodGroupStatsDTOList )
-        {
-            System.out.println(p);
-        }
-
-        // ///////////////////////////////
-        System.out.println("Modifying data");
-        int rowsAffected = patientRepository.updatePatientNameWithId("Sujit Umbalkar", 1L);
-        System.out.println(" rows affected "+ rowsAffected);
     }
 
 }

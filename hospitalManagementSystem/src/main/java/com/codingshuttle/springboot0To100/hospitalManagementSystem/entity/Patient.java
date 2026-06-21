@@ -9,6 +9,8 @@ import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @ToString
@@ -31,6 +33,10 @@ public class Patient
     private String email;
 
     private String gender;
+
+    @OneToMany(mappedBy = "patient")                // inverse side of relationship (mappeedby
+    private List<Appointment> appointments =  new ArrayList<>();
+
 
     @OneToOne
     @JoinColumn(name = "insurance")
