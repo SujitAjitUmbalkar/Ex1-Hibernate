@@ -38,7 +38,10 @@ public class Patient
     private List<Appointment> appointments =  new ArrayList<>();
 
 
-    @OneToOne
+    @OneToOne(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
     @JoinColumn(name = "insurance")
     @ToString.Exclude
     @JsonIgnore
