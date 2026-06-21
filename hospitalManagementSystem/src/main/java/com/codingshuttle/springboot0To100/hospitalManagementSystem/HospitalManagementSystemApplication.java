@@ -19,9 +19,5 @@ public class HospitalManagementSystemApplication
 		SpringApplication.run(HospitalManagementSystemApplication.class, args);
 	}
 
-//    @Override
-//    public void run(String... args) throws Exception
-//    {
-//           patientService.testPatientTransaction();
-//    }
+
 }
