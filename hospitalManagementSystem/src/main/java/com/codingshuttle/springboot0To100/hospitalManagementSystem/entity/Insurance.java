@@ -1,9 +1,7 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -35,6 +33,8 @@ public class Insurance
     private LocalDateTime createdAt;
 
     @OneToOne(mappedBy = "insurance")
+    @ToString.Exclude
+    @JsonIgnore
     private Patient patient;          //  inverse side
 
 }

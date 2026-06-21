@@ -1,6 +1,7 @@
 package com.codingshuttle.springboot0To100.hospitalManagementSystem.entity;
 
 import com.codingshuttle.springboot0To100.hospitalManagementSystem.entity.type.BloodGroupType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,5 +34,7 @@ public class Patient
 
     @OneToOne
     @JoinColumn(name = "insurance")
+    @ToString.Exclude
+    @JsonIgnore
     private Insurance insurance;
 }
