@@ -30,4 +30,8 @@ public class Patient
     private String email;
 
     private String gender;
+
+    @OneToOne
+    @JoinColumn(name = "insurance")
+    private Insurance insurance;
 }

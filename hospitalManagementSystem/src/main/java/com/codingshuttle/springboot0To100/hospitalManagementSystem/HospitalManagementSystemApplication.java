@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HospitalManagementSystemApplication implements CommandLineRunner
+public class HospitalManagementSystemApplication
 {
     private final PatientService patientService;
 
@@ -19,9 +19,9 @@ public class HospitalManagementSystemApplication implements CommandLineRunner
 		SpringApplication.run(HospitalManagementSystemApplication.class, args);
 	}
 
-    @Override
-    public void run(String... args) throws Exception
-    {
-           patientService.testPatientTransaction();
-    }
+//    @Override
+//    public void run(String... args) throws Exception
+//    {
+//           patientService.testPatientTransaction();
+//    }
 }
